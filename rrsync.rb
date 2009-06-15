@@ -11,17 +11,17 @@ require 'open3'
 SSH_APP       = 'ssh'
 RSYNC_APP     = 'rsync'
 
-EXCLUDE_FILE  = '/path/to/.rsyncignore'
-DIR_TO_BACKUP = '/folder/to/backup'
-LOG_FILE      = '/var/log/rrsync.log'
+EXCLUDE_FILE  = '/Users/madnashua/.rsyncignore'
+DIR_TO_BACKUP = '/Users/madnashua/'
+LOG_FILE      = '/Users/madnashua/.log/rrsync/backup_home.log'
 LOG_AGE       = 'daily'
 
 EMPTY_DIR     = '/tmp/empty_rsync_dir/' #NEEDS TRAILING SLASH.
 # == Options for the remote machine.
-SSH_USER      = 'USER'
-SSH_SERVER    = 'HOSTNAME or IP'
+SSH_USER      = 'madnashua'
+SSH_SERVER    = '192.168.0.2'
 SSH_PORT      = '' #Leave blank for default (port 22).
-BACKUP_ROOT   = '/path/on/remote/machine/to/backup/folder'
+BACKUP_ROOT   = '/share/backup/hubris'
 BACKUP_DIR    = BACKUP_ROOT + '/' + Time.now.strftime('%A').downcase
 RSYNC_VERBOSE = '-v'
 RSYNC_OPTS    = "--force --ignore-errors --delete-excluded --exclude-from=#{EXCLUDE_FILE} --delete --backup --backup-dir=#{BACKUP_DIR} -a"
